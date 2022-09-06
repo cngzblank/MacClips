@@ -63,26 +63,12 @@ class AppDelegate: NSObject, NSApplicationDelegate,ObservableObject {
     
     //备用
     func applicationDidHide (_ notification: Notification) {
-        print("hide")
-        if let documentsPathURL = FileManager.default.urls(for: .applicationScriptsDirectory, in: FileManager.SearchPathDomainMask.userDomainMask).first {
-            //This gives you the URL of the path
-            print(documentsPathURL)
-            
-        }
-        if let frontApp=NSWorkspace.shared.frontmostApplication{
-            print (frontApp.bundleIdentifier!)
-        }
     }
     //自动粘贴
     func applicationDidResignActive(_ notification:Notification)
     {
-        print("ResignActive")
         if let documentsPathURL = FileManager.default.urls(for: .applicationScriptsDirectory, in: FileManager.SearchPathDomainMask.userDomainMask).first {
-            //This gives you the URL of the path
-            print(documentsPathURL)
-           
             let scptFile=documentsPathURL.appendingPathComponent("copy.scpt")
-            print(scptFile)
             let scp=try!NSUserScriptTask(url: scptFile)
             scp.execute()
         }
@@ -102,10 +88,8 @@ class AppDelegate: NSObject, NSApplicationDelegate,ObservableObject {
     }
     //快捷键激活
     func showPopover(_ sender: AnyObject? = nil) {
-        print("show")
         
         NSApplication.shared.activate(ignoringOtherApps: true)
-        
     }
     func closePopover(_ sender: AnyObject? = nil) {
         popover.performClose(sender)
@@ -129,7 +113,6 @@ struct MacClipsApp: App {
         WindowGroup{
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-            
         }
     }
 }

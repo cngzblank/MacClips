@@ -56,7 +56,6 @@ struct ContentView: View {
                             let pasteboard = NSPasteboard.general
                             pasteboard.clearContents()
                             pasteboard.setString(self.value, forType: .string)
-                            print(self.value)
                             appdelegate.copydata.setadd(isadd:false)
                             NSApplication.shared.hide(nil)
                             
@@ -75,7 +74,6 @@ struct ContentView: View {
                             let pasteboard = NSPasteboard.general
                             pasteboard.clearContents()
                             pasteboard.writeObjects([dataitem.image!])
-                            print(self.value)
                             appdelegate.copydata.setadd(isadd:false)
                             NSApplication.shared.hide(nil)
 
