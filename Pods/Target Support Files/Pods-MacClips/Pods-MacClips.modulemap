@@ -1,0 +1,6 @@
+module Pods_MacClips {
+  umbrella header "Pods-MacClips-umbrella.h"
+
+  export *
+  module * { export * }
+}
